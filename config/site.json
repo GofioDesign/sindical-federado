@@ -14,7 +14,7 @@
     "survey": "https://forms.gle/REEMPLAZAR"
   },
   "feeds": [
-    { "name": "Sindicalistas de Base", "url": "https://www.sindicalistasdebase.es/", "type": "sb-html", "enabled": true, "limit": 8 },
-    { "name": "Ius Laboralistas", "url": "https://iuslaboralistas.es/feed/", "type": "rss", "enabled": true, "limit": 8 }
+    { "name": "Sindicalistas de Base", "url": "https://www.sindicalistasdebase.es/noticias.php", "type": "sb-html", "enabled": true, "limit": 24 },
+    { "name": "Ius Laboralistas", "url": "https://iuslaboralistas.es/feed/", "type": "rss", "enabled": true, "pages": 4, "limit": 40 }
   ]
 }

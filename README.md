@@ -15,4 +15,4 @@ No hay dependencias de producción ni base de datos. Consulta [SETUP.md](SETUP.m
 
 ## Estado
 
-Versión 0.2.4 pública, con scroll progresivo activado tras el desplazamiento, etiquetas visuales Local/RSS, imágenes remotas y extractos de ambas fuentes. La autenticación y cualquier tratamiento de afiliación sindical quedan deliberadamente fuera de esta fase.
+Versión 0.2.5 pública, con histórico remoto paginado, scroll progresivo activado tras el desplazamiento, etiquetas visuales Local/RSS, imágenes y extractos. La autenticación y cualquier tratamiento de afiliación sindical quedan deliberadamente fuera de esta fase.

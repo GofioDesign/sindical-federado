@@ -32,13 +32,21 @@ function parseSb(html, source, base, limit) {
 const collected=[]; const errors=[];
 for (const feed of site.feeds.filter(f => f.enabled)) {
   try {
-    const response=await fetch(feed.url,{headers:{'user-agent':'SindicalFederado/0.2 (+https://github.com/GofioDesign/sindical-federado)'},signal:AbortSignal.timeout(15000)});
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const text=await response.text(); collected.push(...(feed.type==='rss' ? parseRss(text,feed.name,feed.limit||8) : parseSb(text,feed.name,feed.url,feed.limit||8)));
+    if(feed.type==='rss'){
+      const perPage=Math.ceil((feed.limit||10)/(feed.pages||1));
+      for(let page=1;page<=(feed.pages||1);page++){
+        const url=new URL(feed.url); if(page>1)url.searchParams.set('paged',String(page));
+        const response=await fetch(url,{headers:{'user-agent':'SindicalFederado/0.2 (+https://github.com/GofioDesign/sindical-federado)'},signal:AbortSignal.timeout(15000)});
+        if(!response.ok)throw new Error(`HTTP ${response.status}`); collected.push(...parseRss(await response.text(),feed.name,perPage));
+      }
+    }else{
+      const response=await fetch(feed.url,{headers:{'user-agent':'SindicalFederado/0.2 (+https://github.com/GofioDesign/sindical-federado)'},signal:AbortSignal.timeout(20000)});
+      if(!response.ok)throw new Error(`HTTP ${response.status}`); collected.push(...parseSb(await response.text(),feed.name,feed.url,feed.limit||8));
+    }
   } catch (error) { errors.push({source:feed.name,message:error.message}); }
 }
 for (const item of fallback) if (!collected.some(current=>current.url===item.url)) collected.push(item);
-await Promise.all(collected.filter(item=>!item.image || item.summary==='Actualidad publicada por Sindicalistas de Base.').map(async item=>{
+const enrich=async item=>{
   try {
     const response=await fetch(item.url,{headers:{'user-agent':'SindicalFederado/0.2 (+https://github.com/GofioDesign/sindical-federado)'},signal:AbortSignal.timeout(10000)});
     if(!response.ok)return; const html=await response.text();
@@ -49,7 +57,9 @@ await Promise.all(collected.filter(item=>!item.image || item.summary==='Actualid
       if(description){const clean=decode(description);item.summary=clean.toLocaleLowerCase('es').startsWith(item.title.toLocaleLowerCase('es'))?clean.slice(item.title.length).trim():clean;}
     }
   } catch {}
-}));
+};
+const pending=collected.filter(item=>!item.image || item.summary==='Actualidad publicada por Sindicalistas de Base.');
+for(let index=0;index<pending.length;index+=5)await Promise.all(pending.slice(index,index+5).map(enrich));
 await mkdir(target,{recursive:true});
 await writeFile(join(target,'external-news.json'),JSON.stringify(collected.sort((a,b)=>b.date.localeCompare(a.date)),null,2));
 await writeFile(join(target,'ingestion-status.json'),JSON.stringify({generatedAt:new Date().toISOString(),items:collected.length,errors},null,2));
