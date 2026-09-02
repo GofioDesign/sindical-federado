@@ -4,6 +4,7 @@
   "description": "Informacion sindical, convenio, prevencion y participacion de la plantilla.",
   "locale": "es-ES",
   "timezone": "Atlantic/Canary",
+  "localNewsLabel": "SAN BLAS",
   "baseUrl": "https://gofiodesign.eu/sindical-federado",
   "basePath": "/sindical-federado",
   "theme": { "primary": "#a51d2d", "ink": "#17201d", "paper": "#f7f3ea", "accent": "#f2b544" },

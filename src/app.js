@@ -19,7 +19,7 @@ function escapeHtml(value=''){return String(value).replace(/[&<>\"]/g,c=>({'&':'
 
 const stream=document.querySelector('#external-news');
 if(stream){
-  const styles=document.createElement('link'); const appScript=document.currentScript||document.querySelector('script[src$="/app.js"]'); styles.rel='stylesheet'; styles.href=new URL('news.css',appScript?.src||location.href).href; document.head.append(styles);
+  const styles=document.createElement('link'); const appScript=document.currentScript||document.querySelector('script[src$="/app.js"]'); styles.rel='stylesheet'; styles.dataset.newsStyles=''; styles.href=new URL('news.css',appScript?.src||location.href).href; document.head.append(styles);
   const items=[...stream.querySelectorAll('[data-stream-item]')]; const size=Number(stream.dataset.pageSize)||6;
   const button=document.querySelector('#load-more'); const sentinel=document.querySelector('#stream-sentinel'); const status=document.querySelector('#stream-status'); let visible=size; let observer=null;
   const reveal=()=>{items.slice(visible,visible+size).forEach(item=>item.hidden=false);visible=Math.min(visible+size,items.length);if(status)status.textContent=`Mostrando ${visible} de ${items.length} noticias`;if(visible>=items.length){button?.remove();sentinel?.remove();observer?.disconnect()}};
@@ -27,6 +27,16 @@ if(stream){
   const armObserver=()=>{if('IntersectionObserver' in window&&sentinel&&!observer){observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting))reveal()},{rootMargin:'0px 0px 160px',threshold:.01});observer.observe(sentinel)}};
   window.addEventListener('scroll',armObserver,{once:true,passive:true});
   if(status)status.textContent=`Mostrando ${Math.min(visible,items.length)} de ${items.length} noticias`;
+}
+
+const localArticleLinks=[...document.querySelectorAll('main article h3 a[href*="/noticias/"]')].filter(link=>!link.closest('#external-news'));
+if(localArticleLinks.length){
+  const appScript=document.currentScript||document.querySelector('script[src$="/app.js"]');
+  if(!document.querySelector('link[data-news-styles]')){const styles=document.createElement('link');styles.rel='stylesheet';styles.dataset.newsStyles='';styles.href=new URL('news.css',appScript?.src||location.href).href;document.head.append(styles)}
+  fetch(new URL('../site-config.json',appScript?.src||location.href)).then(response=>response.json()).then(config=>{
+    const label=config.localNewsLabel||'LOCAL';
+    for(const link of localArticleLinks){const article=link.closest('article');article.classList.add('news-card','news-local');let badge=article.querySelector('.source-label');if(!badge){badge=document.createElement('span');badge.className='source-label';article.prepend(badge)}badge.textContent=label}
+  }).catch(()=>{});
 }
 
 if(document.querySelector('#publisher')){
