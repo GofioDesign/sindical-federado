@@ -1,0 +1,4 @@
+[
+  { "title": "Reunión ordinaria del comité", "date": "2026-09-15", "type": "reunion", "description": "Fecha de ejemplo pendiente de confirmar.", "url": "/contacto/" },
+  { "title": "Cierre de la encuesta de instalaciones", "date": "2026-09-30", "type": "survey", "description": "Revisar la fecha al configurar el formulario definitivo.", "url": "/encuestas/" }
+]

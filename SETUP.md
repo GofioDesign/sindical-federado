@@ -22,7 +22,7 @@ Flujo recomendado: `respuesta → hoja privada → revisión → exportación de
 
 ## 4. Fuentes externas
 
-`config/site.json` declara los feeds de Sindicalistas de Base e Ius Laboralistas. La ingestión automática debe ejecutarse en compilación, guardar únicamente título, resumen, fecha, URL canónica y fuente, y conservar el enlace al original. Antes de activarla, confirma las URLs y condiciones de reutilización. El MVP deja la declaración preparada y no publica contenido de terceros no verificado.
+`config/site.json` declara las fuentes de Sindicalistas de Base e Ius Laboralistas. La compilación recoge únicamente título, resumen, fecha, URL canónica y fuente, y conserva el enlace al original. Si una fuente no responde, la compilación continúa y mantiene disponible el contenido local. Los datos generados no se versionan.
 
 ## 5. GitHub Pages
 

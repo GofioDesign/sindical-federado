@@ -2,7 +2,7 @@
 
 Motor web estático, configurable y replicable para comités de empresa y secciones sindicales. San Blas es la primera configuración de ejemplo.
 
-Incluye noticias locales, convenio HTML enlazable, prevención por puestos, encuestas, aviso global con caducidad, enlaces a N2 y WhatsApp, RSS, JSON Feed, sitemap y un acceso editorial orientado a Google Forms/Sheets.
+Incluye noticias locales, ingestión federada, buscador global, panel de seguimiento y calendario, convenio HTML enlazable, prevención por puestos, encuestas, aviso global con caducidad, enlaces a N2 y WhatsApp, RSS, JSON Feed, sitemap y un acceso editorial orientado a Google Forms/Sheets.
 
 ## Inicio rápido
 
@@ -15,4 +15,4 @@ No hay dependencias de producción ni base de datos. Consulta [SETUP.md](SETUP.m
 
 ## Estado
 
-MVP público. La autenticación y cualquier tratamiento de afiliación sindical quedan deliberadamente fuera de esta fase.
+Versión 0.2 pública. La autenticación y cualquier tratamiento de afiliación sindical quedan deliberadamente fuera de esta fase.

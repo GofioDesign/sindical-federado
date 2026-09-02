@@ -1,7 +1,7 @@
 import { access, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 const root = new URL('../', import.meta.url).pathname.replace(/^\/(.:)/, '$1');
-const required=['dist/index.html','dist/feed.xml','dist/feed.json','dist/sitemap.xml','dist/robots.txt','dist/admin.html'];
+const required=['dist/index.html','dist/feed.xml','dist/feed.json','dist/sitemap.xml','dist/robots.txt','dist/admin.html','dist/search-index.json','dist/buscar/index.html','dist/ahora/index.html'];
 for (const f of required) await access(join(root,f));
 const config=JSON.parse(await readFile(join(root,'config/site.json'),'utf8'));
 const urgent=JSON.parse(await readFile(join(root,'content/urgent.json'),'utf8'));
@@ -10,4 +10,6 @@ if (urgent.active && (!urgent.starts || !urgent.ends)) throw new Error('Active u
 if (new Date(urgent.ends) <= new Date(urgent.starts)) throw new Error('Urgent banner end must be after start');
 const html=await readFile(join(root,'dist/index.html'),'utf8');
 if (/undefined|null/.test(html)) throw new Error('Rendered home contains missing values');
+const index=JSON.parse(await readFile(join(root,'dist/search-index.json'),'utf8'));
+if (!index.some(item=>item.type==='Convenio') || !index.some(item=>item.type==='Seguridad')) throw new Error('Search index is incomplete');
 console.log(`Checks passed (${required.length} required artifacts)`);
