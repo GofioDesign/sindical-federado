@@ -46,6 +46,7 @@ await cp(join(root,'src/style.css'),join(out,'assets/style.css'));
 await cp(join(root,'src/app.js'),join(out,'assets/app.js'));
 await cp(join(root,'src/news.css'),join(out,'assets/news.css'));
 await cp(join(root,'src/publisher.js'),join(out,'assets/publisher.js'));
+await cp(join(root,'static/images'),join(out,'images'),{recursive:true});
 const base = site.baseUrl.replace(/\/$/,'');
 const routes = ['', 'ahora/', 'buscar/', 'publicar/', 'noticias/', ...news.map(n=>`noticias/${n.slug}/`), 'convenio/', 'seguridad/', ...safety.map(s=>`seguridad/${s.slug}/`), 'encuestas/', 'contacto/'];
 await writeFile(join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map(r=>`<url><loc>${base}/${r}</loc></url>`).join('')}</urlset>`);

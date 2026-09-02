@@ -1,7 +1,7 @@
 import { access, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 const root = new URL('../', import.meta.url).pathname.replace(/^\/(.:)/, '$1');
-const required=['dist/index.html','dist/feed.xml','dist/feed.json','dist/sitemap.xml','dist/robots.txt','dist/admin.html','dist/search-index.json','dist/buscar/index.html','dist/ahora/index.html','dist/publicar/index.html','dist/assets/news.css','dist/assets/publisher.js','dist/noticias/como-publicamos/index.html'];
+const required=['dist/index.html','dist/feed.xml','dist/feed.json','dist/sitemap.xml','dist/robots.txt','dist/admin.html','dist/search-index.json','dist/buscar/index.html','dist/ahora/index.html','dist/publicar/index.html','dist/assets/news.css','dist/assets/publisher.js','dist/noticias/como-publicamos/index.html','dist/images/cabecera-como-publicamos.png'];
 for (const f of required) await access(join(root,f));
 const config=JSON.parse(await readFile(join(root,'config/site.json'),'utf8'));
 const urgent=JSON.parse(await readFile(join(root,'content/urgent.json'),'utf8'));
@@ -22,4 +22,5 @@ const publisherHtml=await readFile(join(root,'dist/publicar/index.html'),'utf8')
 if(!publisherHtml.includes('id="publisher"')||!publisherHtml.includes('Descargar .md'))throw new Error('Markdown publisher is incomplete');
 const markdownArticle=await readFile(join(root,'dist/noticias/como-publicamos/index.html'),'utf8');
 if(!markdownArticle.includes('Flujo editorial'))throw new Error('Markdown article was not rendered');
+if(!markdownArticle.includes('cabecera-como-publicamos.png'))throw new Error('Markdown article image was not rendered');
 console.log(`Checks passed (${required.length} required artifacts)`);

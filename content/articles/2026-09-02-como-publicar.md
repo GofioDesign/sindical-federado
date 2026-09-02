@@ -9,6 +9,8 @@ priority: normal
 tags: [comité, transparencia]
 ---
 
+![Mesa de trabajo con un portátil y materiales para preparar una publicación](https://gofiodesign.eu/sindical-federado/images/cabecera-como-publicamos.png)
+
 Este sistema separa el **contenido local** de las noticias federadas.
 
 ## Flujo editorial

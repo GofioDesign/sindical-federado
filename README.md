@@ -17,4 +17,4 @@ No hay dependencias de producción ni base de datos. Consulta [SETUP.md](SETUP.m
 
 ## Estado
 
-Versión 0.3.0 pública, con publicador y pipeline editorial Markdown. La autenticación y cualquier tratamiento de afiliación sindical quedan deliberadamente fuera de esta fase.
+Versión 0.3.1 pública, con publicador, pipeline editorial Markdown e imágenes editoriales servidas desde el sitio. La autenticación y cualquier tratamiento de afiliación sindical quedan deliberadamente fuera de esta fase.
