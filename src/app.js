@@ -3,6 +3,10 @@ document.querySelectorAll('[data-start][data-end]').forEach((banner) => {
   if (now < Date.parse(banner.dataset.start) || now > Date.parse(banner.dataset.end)) banner.hidden = true;
 });
 
+const runtimeScript=document.currentScript||document.querySelector('script[src$="/app.js"]');
+const siteConfigPromise=fetch(new URL('../site-config.json',runtimeScript?.src||location.href)).then(response=>response.json());
+siteConfigPromise.then(config=>{const format=config.dateFormat||'AAAA-MM-DD';document.querySelectorAll('time').forEach(element=>{element.textContent=element.textContent.replace(/(\d{4})-(\d{2})-(\d{2})/g,(_,year,month,day)=>format.replace('AAAA',year).replace('MM',month).replace('DD',day))})}).catch(()=>{});
+
 const input=document.querySelector('#search');
 if(input){
   const results=document.querySelector('#search-results'); const count=document.querySelector('#search-count'); let index=[];
@@ -33,7 +37,7 @@ const localArticleLinks=[...document.querySelectorAll('main article h3 a[href*="
 if(localArticleLinks.length||stream){
   const appScript=document.currentScript||document.querySelector('script[src$="/app.js"]');
   if(!document.querySelector('link[data-news-styles]')){const styles=document.createElement('link');styles.rel='stylesheet';styles.dataset.newsStyles='';styles.href=new URL('news.css',appScript?.src||location.href).href;document.head.append(styles)}
-  fetch(new URL('../site-config.json',appScript?.src||location.href)).then(response=>response.json()).then(config=>{
+  siteConfigPromise.then(config=>{
     const label=config.localNewsLabel||'LOCAL';
     for(const link of localArticleLinks){const article=link.closest('article');article.classList.add('news-card','news-local');let badge=article.querySelector('.source-label');if(!badge){badge=document.createElement('span');badge.className='source-label';article.prepend(badge)}badge.textContent=label}
     for(const article of document.querySelectorAll('#external-news .news-card')){const source=article.querySelector('.pill')?.textContent.trim(),sourceConfig=config.externalNewsLabels?.[source];if(!sourceConfig)continue;article.classList.remove('news-rss');article.classList.add(`news-${sourceConfig.style}`);article.querySelector('.source-label').textContent=sourceConfig.label}

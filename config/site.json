@@ -4,6 +4,7 @@
   "description": "Informacion sindical, convenio, prevencion y participacion de la plantilla.",
   "locale": "es-ES",
   "timezone": "Atlantic/Canary",
+  "dateFormat": "DD-MM-AAAA",
   "localNewsLabel": "SAN BLAS",
   "externalNewsLabels": {
     "Sindicalistas de Base": { "label": "SB", "style": "sb" },
