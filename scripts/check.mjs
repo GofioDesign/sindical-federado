@@ -1,0 +1,13 @@
+import { access, readFile } from 'node:fs/promises';
+import { join } from 'node:path';
+const root = new URL('../', import.meta.url).pathname.replace(/^\/(.:)/, '$1');
+const required=['dist/index.html','dist/feed.xml','dist/feed.json','dist/sitemap.xml','dist/robots.txt','dist/admin.html'];
+for (const f of required) await access(join(root,f));
+const config=JSON.parse(await readFile(join(root,'config/site.json'),'utf8'));
+const urgent=JSON.parse(await readFile(join(root,'content/urgent.json'),'utf8'));
+if (!/^https:\/\//.test(config.baseUrl)) throw new Error('baseUrl must use https');
+if (urgent.active && (!urgent.starts || !urgent.ends)) throw new Error('Active urgent banner requires start and end');
+if (new Date(urgent.ends) <= new Date(urgent.starts)) throw new Error('Urgent banner end must be after start');
+const html=await readFile(join(root,'dist/index.html'),'utf8');
+if (/undefined|null/.test(html)) throw new Error('Rendered home contains missing values');
+console.log(`Checks passed (${required.length} required artifacts)`);

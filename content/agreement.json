@@ -1,0 +1,11 @@
+{
+  "title": "Convenio colectivo",
+  "sourceLabel": "Publicación oficial pendiente de configurar",
+  "sourceUrl": "https://example.org/convenio.pdf",
+  "updated": "2026-09-02",
+  "chapters": [
+    { "id": "ambito", "title": "Ámbito y vigencia", "articles": [{ "id": "articulo-1", "title": "Artículo 1. Ámbito", "text": "Sustituir por el texto oficial contrastado y enlazar la publicación oficial." }] },
+    { "id": "jornada", "title": "Jornada y descansos", "articles": [{ "id": "articulo-jornada", "title": "Jornada", "text": "Contenido pendiente de transcripción y revisión." }] },
+    { "id": "salarios", "title": "Salarios", "articles": [{ "id": "tablas-salariales", "title": "Tablas salariales", "text": "Publicar importes únicamente desde fuentes oficiales verificadas." }] }
+  ]
+}

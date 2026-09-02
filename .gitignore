@@ -1,0 +1,9 @@
+dist/
+.env
+.env.*
+!.env.example
+private/
+data/private/
+*.local.json
+.DS_Store
+

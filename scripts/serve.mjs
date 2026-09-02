@@ -1,0 +1,4 @@
+import http from 'node:http'; import { readFile, stat } from 'node:fs/promises'; import { extname, join } from 'node:path';
+const root=new URL('../dist/',import.meta.url).pathname.replace(/^\/(.:)/,'$1'); const port=Number(process.env.PORT||4173);
+const types={'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.xml':'application/xml','.json':'application/json','.txt':'text/plain'};
+http.createServer(async(req,res)=>{try{let p=join(root,decodeURIComponent(req.url.split('?')[0])); if((await stat(p)).isDirectory())p=join(p,'index.html'); const b=await readFile(p);res.writeHead(200,{'content-type':types[extname(p)]||'application/octet-stream'});res.end(b)}catch{res.writeHead(404);res.end('No encontrado')}}).listen(port,()=>console.log(`http://localhost:${port}`));

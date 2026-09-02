@@ -1,0 +1,10 @@
+[
+  {
+    "slug": "bienvenida",
+    "title": "Abrimos este espacio sindical",
+    "summary": "Una web para consultar derechos, prevención, noticias y canales de participación.",
+    "date": "2026-09-02",
+    "tags": ["comite", "informacion"],
+    "body": ["Esta primera versión reúne información pública y enlaces de contacto.", "No envíes datos de salud, afiliación u otra información sensible mediante formularios no habilitados específicamente para ello."]
+  }
+]

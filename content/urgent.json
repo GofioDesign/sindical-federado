@@ -1,0 +1,9 @@
+{
+  "active": true,
+  "level": "important",
+  "title": "Web en fase inicial",
+  "message": "Estamos preparando este espacio. Verifica fechas y documentos antes de actuar.",
+  "url": "/contacto/",
+  "starts": "2026-09-01T00:00:00+01:00",
+  "ends": "2026-12-31T23:59:59+00:00"
+}

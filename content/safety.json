@@ -1,0 +1,6 @@
+[
+  { "slug": "pisos", "title": "Pisos", "risks": ["Sobreesfuerzos y movimientos repetitivos", "Caídas al mismo nivel", "Exposición a productos químicos"], "measures": ["Usa los equipos y útiles evaluados para la tarea.", "Comunica deficiencias de carros, suelos o productos.", "Consulta la evaluación específica de tu puesto."] },
+  { "slug": "cocina", "title": "Cocina", "risks": ["Cortes y quemaduras", "Caídas por suelos húmedos", "Carga física y calor"], "measures": ["Mantén libres las zonas de paso.", "Utiliza equipos de protección conforme a la evaluación.", "Comunica averías y riesgos graves de inmediato."] },
+  { "slug": "mantenimiento", "title": "Mantenimiento", "risks": ["Riesgo eléctrico", "Trabajos en altura", "Herramientas y equipos"], "measures": ["Aplica consignación y procedimientos autorizados.", "No realices trabajos sin medios adecuados.", "Detén y comunica una situación de riesgo grave e inminente."] },
+  { "slug": "instalaciones", "title": "Instalaciones de personal", "risks": ["Ausencia o mal estado de taquillas", "Duchas deficientes", "Baños sin limpieza, jabón o privacidad"], "measures": ["Registra la zona y el problema sin identificar a terceras personas.", "Usa el canal del comité para solicitar seguimiento.", "Separa hechos observados de valoraciones jurídicas."] }
+]

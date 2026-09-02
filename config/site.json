@@ -1,0 +1,19 @@
+{
+  "name": "Comite de San Blas",
+  "shortName": "San Blas",
+  "description": "Informacion sindical, convenio, prevencion y participacion de la plantilla.",
+  "locale": "es-ES",
+  "timezone": "Atlantic/Canary",
+  "baseUrl": "https://example.org",
+  "theme": { "primary": "#a51d2d", "ink": "#17201d", "paper": "#f7f3ea", "accent": "#f2b544" },
+  "links": {
+    "whatsapp": "https://whatsapp.com/channel/REEMPLAZAR",
+    "n2": "https://example.org/n2",
+    "contact": "https://forms.gle/REEMPLAZAR",
+    "survey": "https://forms.gle/REEMPLAZAR"
+  },
+  "feeds": [
+    { "name": "Sindicalistas de Base", "url": "https://sindicalistasdebase.es/feed/", "enabled": true },
+    { "name": "Ius Laboralistas", "url": "https://iuslaboralistas.es/feed/", "enabled": true }
+  ]
+}
