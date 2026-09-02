@@ -24,6 +24,8 @@ Flujo recomendado: `respuesta → hoja privada → revisión → exportación de
 
 `config/site.json` declara las fuentes de Sindicalistas de Base e Ius Laboralistas. La compilación recoge únicamente título, resumen, fecha, URL canónica y fuente, y conserva el enlace al original. Si una fuente no responde, la compilación continúa y mantiene disponible el contenido local. Los datos generados no se versionan.
 
+`content/feed-fallback.json` contiene una caché pública mínima para fuentes que bloquean GitHub Actions. Solo se usa cuando no se obtiene ningún elemento actual de esa fuente; no contiene el cuerpo de los artículos.
+
 ## 5. GitHub Pages
 
 En Settings → Pages selecciona **GitHub Actions** como origen. Cada envío a `main` compila, valida y publica `dist/`. Configura un dominio propio solo después de actualizar `baseUrl`.
