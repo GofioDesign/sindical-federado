@@ -38,12 +38,16 @@ for (const feed of site.feeds.filter(f => f.enabled)) {
   } catch (error) { errors.push({source:feed.name,message:error.message}); }
 }
 for (const item of fallback) if (!collected.some(current=>current.url===item.url)) collected.push(item);
-await Promise.all(collected.filter(item=>!item.image).map(async item=>{
+await Promise.all(collected.filter(item=>!item.image || item.summary==='Actualidad publicada por Sindicalistas de Base.').map(async item=>{
   try {
     const response=await fetch(item.url,{headers:{'user-agent':'SindicalFederado/0.2 (+https://github.com/GofioDesign/sindical-federado)'},signal:AbortSignal.timeout(10000)});
     if(!response.ok)return; const html=await response.text();
     const image=html.match(/<meta[^>]+(?:property|name)=["']og:image["'][^>]+content=["']([^"']+)["']/i)?.[1] || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+(?:property|name)=["']og:image["']/i)?.[1];
     if(image)item.image=new URL(image,item.url).href;
+    if(item.summary==='Actualidad publicada por Sindicalistas de Base.'){
+      const description=html.match(/<meta[^>]+(?:property|name)=["']og:description["'][^>]+content=["']([^"']+)["']/i)?.[1] || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+(?:property|name)=["']og:description["']/i)?.[1];
+      if(description){const clean=decode(description);item.summary=clean.toLocaleLowerCase('es').startsWith(item.title.toLocaleLowerCase('es'))?clean.slice(item.title.length).trim():clean;}
+    }
   } catch {}
 }));
 await mkdir(target,{recursive:true});

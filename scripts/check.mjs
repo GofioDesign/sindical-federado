@@ -14,4 +14,5 @@ const index=JSON.parse(await readFile(join(root,'dist/search-index.json'),'utf8'
 if (!index.some(item=>item.type==='Convenio') || !index.some(item=>item.type==='Seguridad')) throw new Error('Search index is incomplete');
 const newsHtml=await readFile(join(root,'dist/noticias/index.html'),'utf8');
 if (!newsHtml.includes('data-stream-item') || !newsHtml.includes('loading="lazy"')) throw new Error('News stream is incomplete');
+if (newsHtml.includes('<p>Actualidad publicada por Sindicalistas de Base.</p>')) throw new Error('SDB excerpts were not enriched');
 console.log(`Checks passed (${required.length} required artifacts)`);

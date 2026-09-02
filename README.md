@@ -15,4 +15,4 @@ No hay dependencias de producción ni base de datos. Consulta [SETUP.md](SETUP.m
 
 ## Estado
 
-Versión 0.2.1 pública, con imágenes remotas y carga progresiva de noticias. La autenticación y cualquier tratamiento de afiliación sindical quedan deliberadamente fuera de esta fase.
+Versión 0.2.2 pública, con imágenes remotas, extractos de ambas fuentes y carga progresiva de noticias. La autenticación y cualquier tratamiento de afiliación sindical quedan deliberadamente fuera de esta fase.
