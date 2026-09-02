@@ -30,12 +30,13 @@ if(stream){
 }
 
 const localArticleLinks=[...document.querySelectorAll('main article h3 a[href*="/noticias/"]')].filter(link=>!link.closest('#external-news'));
-if(localArticleLinks.length){
+if(localArticleLinks.length||stream){
   const appScript=document.currentScript||document.querySelector('script[src$="/app.js"]');
   if(!document.querySelector('link[data-news-styles]')){const styles=document.createElement('link');styles.rel='stylesheet';styles.dataset.newsStyles='';styles.href=new URL('news.css',appScript?.src||location.href).href;document.head.append(styles)}
   fetch(new URL('../site-config.json',appScript?.src||location.href)).then(response=>response.json()).then(config=>{
     const label=config.localNewsLabel||'LOCAL';
     for(const link of localArticleLinks){const article=link.closest('article');article.classList.add('news-card','news-local');let badge=article.querySelector('.source-label');if(!badge){badge=document.createElement('span');badge.className='source-label';article.prepend(badge)}badge.textContent=label}
+    for(const article of document.querySelectorAll('#external-news .news-card')){const source=article.querySelector('.pill')?.textContent.trim(),sourceConfig=config.externalNewsLabels?.[source];if(!sourceConfig)continue;article.classList.remove('news-rss');article.classList.add(`news-${sourceConfig.style}`);article.querySelector('.source-label').textContent=sourceConfig.label}
   }).catch(()=>{});
 }
 

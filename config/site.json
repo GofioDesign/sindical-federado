@@ -5,6 +5,10 @@
   "locale": "es-ES",
   "timezone": "Atlantic/Canary",
   "localNewsLabel": "SAN BLAS",
+  "externalNewsLabels": {
+    "Sindicalistas de Base": { "label": "SB", "style": "sb" },
+    "Ius Laboralistas": { "label": "IUS LABORISTA", "style": "ius" }
+  },
   "baseUrl": "https://gofiodesign.eu/sindical-federado",
   "basePath": "/sindical-federado",
   "theme": { "primary": "#a51d2d", "ink": "#17201d", "paper": "#f7f3ea", "accent": "#f2b544" },
