@@ -6,9 +6,10 @@ const site = JSON.parse(await readFile(join(root, 'config/site.json'), 'utf8'));
 const target = join(root, 'content/.generated');
 const decode = (value='') => value.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#039;|&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim();
 const tag = (xml, name) => decode(xml.match(new RegExp(`<${name}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${name}>`, 'i'))?.[1] || '');
+const imageFrom = (value='') => value.match(/<(?:media:content|media:thumbnail)[^>]+url=["']([^"']+)["']/i)?.[1] || value.match(/<enclosure[^>]+url=["']([^"']+)["'][^>]+type=["']image\//i)?.[1] || value.match(/<img[^>]+(?:src|data-src)=["']([^"']+)["']/i)?.[1] || '';
 
 function parseRss(xml, source, limit) {
-  return [...xml.matchAll(/<item(?:\s[^>]*)?>([\s\S]*?)<\/item>/gi)].slice(0, limit).map(([, item]) => ({ source, title: tag(item, 'title'), url: tag(item, 'link'), summary: tag(item, 'description'), date: new Date(tag(item, 'pubDate') || Date.now()).toISOString(), type: 'external' })).filter(item => item.title && /^https?:\/\//.test(item.url));
+  return [...xml.matchAll(/<item(?:\s[^>]*)?>([\s\S]*?)<\/item>/gi)].slice(0, limit).map(([, item]) => ({ source, title: tag(item, 'title'), url: tag(item, 'link'), image: imageFrom(item), summary: tag(item, 'description'), date: new Date(tag(item, 'pubDate') || Date.now()).toISOString(), type: 'external' })).filter(item => item.title && /^https?:\/\//.test(item.url));
 }
 
 function parseSb(html, source, base, limit) {
@@ -19,7 +20,9 @@ function parseSb(html, source, base, limit) {
     const dateMatch = text.match(/(\d{1,2})\s+(Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|Oct|Nov|Dic)[a-z]*\s+(\d{4})/i);
     const date=dateMatch ? new Date(Date.UTC(Number(dateMatch[3]),months[dateMatch[2].slice(0,3).toLowerCase()],Number(dateMatch[1]))).toISOString() : new Date().toISOString();
     const title=text.replace(dateMatch?.[0] || '', '').replace(/\s*(Leer\s*→?|Sindicalistas de Base.*)$/i, '').trim();
-    if (title.length > 12) items.push({source,title,url,summary:'Actualidad publicada por Sindicalistas de Base.',date,type:'external'});
+    const imageMatch=match[2].match(/<img[^>]+(?:src|data-src)=["']([^"']+)["']/i);
+    const image=imageMatch ? new URL(imageMatch[1],base).href : '';
+    if (title.length > 12) items.push({source,title,url,image,summary:'Actualidad publicada por Sindicalistas de Base.',date,type:'external'});
     if (items.length >= limit) break;
   }
   return items;
@@ -33,6 +36,14 @@ for (const feed of site.feeds.filter(f => f.enabled)) {
     const text=await response.text(); collected.push(...(feed.type==='rss' ? parseRss(text,feed.name,feed.limit||8) : parseSb(text,feed.name,feed.url,feed.limit||8)));
   } catch (error) { errors.push({source:feed.name,message:error.message}); }
 }
+await Promise.all(collected.filter(item=>!item.image).map(async item=>{
+  try {
+    const response=await fetch(item.url,{headers:{'user-agent':'SindicalFederado/0.2 (+https://github.com/GofioDesign/sindical-federado)'},signal:AbortSignal.timeout(10000)});
+    if(!response.ok)return; const html=await response.text();
+    const image=html.match(/<meta[^>]+(?:property|name)=["']og:image["'][^>]+content=["']([^"']+)["']/i)?.[1] || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+(?:property|name)=["']og:image["']/i)?.[1];
+    if(image)item.image=new URL(image,item.url).href;
+  } catch {}
+}));
 await mkdir(target,{recursive:true});
 await writeFile(join(target,'external-news.json'),JSON.stringify(collected.sort((a,b)=>b.date.localeCompare(a.date)),null,2));
 await writeFile(join(target,'ingestion-status.json'),JSON.stringify({generatedAt:new Date().toISOString(),items:collected.length,errors},null,2));
