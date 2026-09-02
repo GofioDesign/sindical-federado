@@ -4,7 +4,8 @@
   "description": "Informacion sindical, convenio, prevencion y participacion de la plantilla.",
   "locale": "es-ES",
   "timezone": "Atlantic/Canary",
-  "baseUrl": "https://example.org",
+  "baseUrl": "https://gofiodesign.eu/sindical-federado",
+  "basePath": "/sindical-federado",
   "theme": { "primary": "#a51d2d", "ink": "#17201d", "paper": "#f7f3ea", "accent": "#f2b544" },
   "links": {
     "whatsapp": "https://whatsapp.com/channel/REEMPLAZAR",
