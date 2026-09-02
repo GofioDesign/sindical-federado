@@ -19,11 +19,12 @@ function escapeHtml(value=''){return String(value).replace(/[&<>\"]/g,c=>({'&':'
 
 const stream=document.querySelector('#external-news');
 if(stream){
-  const styles=document.createElement('link'); styles.rel='stylesheet'; styles.href=new URL('news.css',document.currentScript.src).href; document.head.append(styles);
+  const styles=document.createElement('link'); const appScript=document.currentScript||document.querySelector('script[src$="/app.js"]'); styles.rel='stylesheet'; styles.href=new URL('news.css',appScript?.src||location.href).href; document.head.append(styles);
   const items=[...stream.querySelectorAll('[data-stream-item]')]; const size=Number(stream.dataset.pageSize)||6;
   const button=document.querySelector('#load-more'); const sentinel=document.querySelector('#stream-sentinel'); const status=document.querySelector('#stream-status'); let visible=size; let observer=null;
   const reveal=()=>{items.slice(visible,visible+size).forEach(item=>item.hidden=false);visible=Math.min(visible+size,items.length);if(status)status.textContent=`Mostrando ${visible} de ${items.length} noticias`;if(visible>=items.length){button?.remove();sentinel?.remove();observer?.disconnect()}};
   button?.addEventListener('click',reveal);
-  if('IntersectionObserver' in window&&sentinel){observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting))reveal()},{rootMargin:'500px'});observer.observe(sentinel)}
+  const armObserver=()=>{if('IntersectionObserver' in window&&sentinel&&!observer){observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting))reveal()},{rootMargin:'0px 0px 160px',threshold:.01});observer.observe(sentinel)}};
+  window.addEventListener('scroll',armObserver,{once:true,passive:true});
   if(status)status.textContent=`Mostrando ${Math.min(visible,items.length)} de ${items.length} noticias`;
 }
