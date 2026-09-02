@@ -37,7 +37,7 @@ for (const feed of site.feeds.filter(f => f.enabled)) {
     const text=await response.text(); collected.push(...(feed.type==='rss' ? parseRss(text,feed.name,feed.limit||8) : parseSb(text,feed.name,feed.url,feed.limit||8)));
   } catch (error) { errors.push({source:feed.name,message:error.message}); }
 }
-for (const item of fallback) if (!collected.some(current=>current.source===item.source)) collected.push(item);
+for (const item of fallback) if (!collected.some(current=>current.url===item.url)) collected.push(item);
 await Promise.all(collected.filter(item=>!item.image).map(async item=>{
   try {
     const response=await fetch(item.url,{headers:{'user-agent':'SindicalFederado/0.2 (+https://github.com/GofioDesign/sindical-federado)'},signal:AbortSignal.timeout(10000)});
