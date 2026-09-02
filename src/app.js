@@ -28,3 +28,7 @@ if(stream){
   window.addEventListener('scroll',armObserver,{once:true,passive:true});
   if(status)status.textContent=`Mostrando ${Math.min(visible,items.length)} de ${items.length} noticias`;
 }
+
+if(document.querySelector('#publisher')){
+  const appScript=document.currentScript||document.querySelector('script[src$="/app.js"]'); const publisher=document.createElement('script'); publisher.src=new URL('publisher.js',appScript?.src||location.href).href; document.body.append(publisher);
+}

@@ -4,6 +4,8 @@ Motor web estático, configurable y replicable para comités de empresa y seccio
 
 Incluye noticias locales, ingestión federada, buscador global, panel de seguimiento y calendario, convenio HTML enlazable, prevención por puestos, encuestas, aviso global con caducidad, enlaces a N2 y WhatsApp, RSS, JSON Feed, sitemap y un acceso editorial orientado a Google Forms/Sheets.
 
+Los artículos propios pueden escribirse en `content/articles/*.md`. La página `/publicar/` genera borradores Markdown mediante un formulario local, con vista previa y descarga.
+
 ## Inicio rápido
 
 1. Instala Node.js 20 o superior.
@@ -15,4 +17,4 @@ No hay dependencias de producción ni base de datos. Consulta [SETUP.md](SETUP.m
 
 ## Estado
 
-Versión 0.2.5 pública, con histórico remoto paginado, scroll progresivo activado tras el desplazamiento, etiquetas visuales Local/RSS, imágenes y extractos. La autenticación y cualquier tratamiento de afiliación sindical quedan deliberadamente fuera de esta fase.
+Versión 0.3.0 pública, con publicador y pipeline editorial Markdown. La autenticación y cualquier tratamiento de afiliación sindical quedan deliberadamente fuera de esta fase.

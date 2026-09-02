@@ -6,6 +6,10 @@ Usa este repositorio como plantilla o copia la configuración a un repositorio n
 
 Los contenidos locales viven en `content/`. Cada noticia usa un `slug` único. El convenio se divide en capítulos y artículos con identificadores estables; esos identificadores forman las anclas compartibles.
 
+Los artículos Markdown viven en `content/articles/`. Copia `TEMPLATE.md` o usa `/publicar/` para descargar un borrador. Solo los archivos con `status: published` aparecen en la web; `draft`, `review` y `archived` permanecen fuera de la compilación pública.
+
+Para añadir una imagen, súbela a la carpeta compartida de Drive, comparte únicamente ese archivo como «cualquiera con el enlace» y pega el enlace en el publicador. El editor genera automáticamente el Markdown.
+
 ## 2. Aviso global urgente
 
 Edita `content/urgent.json`. Un aviso activo necesita `starts` y `ends`; el navegador lo oculta fuera de ese intervalo. Usa nivel `informative`, `important` o `urgent`. Mantén un solo aviso global activo.
