@@ -9,6 +9,9 @@
   "bulletin": "BOP de Santa Cruz de Tenerife n.º 154",
   "sourceLabel": "Iberley - ficha consolidada del convenio",
   "sourceUrl": "https://www.iberley.es/convenios/sector/revision-salarial-convenio-colectivo-provincial-hosteleria-santacruz-tenerife-ano-2003-2600230",
+  "registryLabel": "Registro de convenios del Ministerio de Trabajo",
+  "registryUrl": "https://expinterweb.mites.gob.es/regcon/pub/consultaCodigoMapas?convenioMapa=38000905011981",
+  "registryChecked": "2026-09-03",
   "officialPdf": "https://djrw2cmq7svtp.cloudfront.net/convenios/11083359.pdf",
   "updated": "2026-09-03",
   "chapters": [
@@ -45,9 +48,11 @@
   ],
   "amendments": [
     {"date":"2026-07-22","type":"Acuerdo de la Comisión Paritaria","title":"Acuerdo posterior relacionado con el convenio vigente"},
-    {"date":"2026-04-29","type":"Modificación / interpretación","title":"Acuerdo sobre plus de transporte","validFrom":"2026-03-26"},
-    {"date":"2026-04-03","type":"Modificación / interpretación","title":"Acuerdo de la Comisión Paritaria","validFrom":"2026-02-12"},
+    {"date":"2026-04-29","type":"Acuerdo de la Comisión Paritaria","title":"Acuerdo sobre plus de transporte","validFrom":"2026-03-26"},
+    {"date":"2026-04-03","type":"Acuerdo de la Comisión Paritaria","title":"Acuerdo posterior relacionado con el convenio vigente","validFrom":"2026-02-12"},
     {"date":"2026-01-09","type":"Corrección de errores","title":"Corrección del convenio publicado en el BOP n.º 154"}
+    ,{"date":"2025-12-15","type":"Revisión salarial automática","title":"Trámite registrado por el Ministerio de Trabajo"}
+    ,{"date":"2025-12-15","type":"Revisión salarial automática","title":"Segundo trámite registrado por el Ministerio de Trabajo"}
   ],
   "history": [
     {"period":"2025-2028","published":"2025-12-22","status":"Vigente","url":"https://www.iberley.es/convenios/sector/revision-salarial-convenio-colectivo-provincial-hosteleria-santacruz-tenerife-ano-2003-2600230"},

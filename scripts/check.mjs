@@ -1,7 +1,7 @@
 import { access, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 const root = new URL('../', import.meta.url).pathname.replace(/^\/(.:)/, '$1');
-const required=['dist/index.html','dist/feed.xml','dist/feed.json','dist/sitemap.xml','dist/robots.txt','dist/admin.html','dist/search-index.json','dist/local-news.json','dist/agreement-guide.json','dist/buscar/index.html','dist/ahora/index.html','dist/publicar/index.html','dist/assets/news.css','dist/assets/publisher.js','dist/assets/agreement.js','dist/assets/agreement.css','dist/noticias/como-publicamos/index.html','dist/images/cabecera-como-publicamos.png'];
+const required=['dist/index.html','dist/feed.xml','dist/feed.json','dist/sitemap.xml','dist/robots.txt','dist/admin.html','dist/search-index.json','dist/local-news.json','dist/agreement-guide.json','dist/agreement-data.json','dist/buscar/index.html','dist/ahora/index.html','dist/publicar/index.html','dist/assets/news.css','dist/assets/publisher.js','dist/assets/agreement.js','dist/assets/agreement.css','dist/noticias/como-publicamos/index.html','dist/images/cabecera-como-publicamos.png'];
 for (const f of required) await access(join(root,f));
 const config=JSON.parse(await readFile(join(root,'config/site.json'),'utf8'));
 const urgent=JSON.parse(await readFile(join(root,'content/urgent.json'),'utf8'));

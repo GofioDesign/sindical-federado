@@ -49,6 +49,7 @@ await cp(join(root,'src/publisher.js'),join(out,'assets/publisher.js'));
 await cp(join(root,'src/agreement.js'),join(out,'assets/agreement.js'));
 await cp(join(root,'src/agreement.css'),join(out,'assets/agreement.css'));
 await cp(join(root,'content/agreement-guide.json'),join(out,'agreement-guide.json'));
+await cp(join(root,'content/agreement.json'),join(out,'agreement-data.json'));
 await cp(join(root,'config/site.json'),join(out,'site-config.json'));
 await cp(join(root,'static/images'),join(out,'images'),{recursive:true});
 const base = site.baseUrl.replace(/\/$/,'');
