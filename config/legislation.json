@@ -1,0 +1,9 @@
+{
+  "registry": "https://raw.githubusercontent.com/GofioDesign/legislacion-interpretada/main/registry.json",
+  "base": "https://raw.githubusercontent.com/GofioDesign/legislacion-interpretada/main/",
+  "corpora": [
+    "convenio-hosteleria-santa-cruz-tenerife-2025-2028",
+    "estatuto-trabajadores"
+  ],
+  "cacheDir": "content/.generated/legislation"
+}
