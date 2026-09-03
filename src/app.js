@@ -3,8 +3,12 @@ document.querySelectorAll('[data-start][data-end]').forEach((banner) => {
   if (now < Date.parse(banner.dataset.start) || now > Date.parse(banner.dataset.end)) banner.hidden = true;
 });
 
+const footerLinks=document.querySelector('footer p:last-child');
+if(footerLinks&&!footerLinks.querySelector('a[href*="/publicar/"]')){footerLinks.append(' · ');const publisherLink=document.createElement('a');publisherLink.href=new URL('../publicar/',document.currentScript?.src||location.href).href;publisherLink.textContent='Publicar artículo';footerLinks.append(publisherLink)}
+
 const runtimeScript=document.currentScript||document.querySelector('script[src$="/app.js"]');
 const siteConfigPromise=fetch(new URL('../site-config.json',runtimeScript?.src||location.href)).then(response=>response.json());
+const localNewsPromise=fetch(new URL('../local-news.json',runtimeScript?.src||location.href)).then(response=>response.json());
 siteConfigPromise.then(config=>{const format=config.dateFormat||'AAAA-MM-DD';document.querySelectorAll('time').forEach(element=>{element.textContent=element.textContent.replace(/(\d{4})-(\d{2})-(\d{2})/g,(_,year,month,day)=>format.replace('AAAA',year).replace('MM',month).replace('DD',day))})}).catch(()=>{});
 
 const input=document.querySelector('#search');
@@ -41,6 +45,7 @@ if(localArticleLinks.length||stream){
     const label=config.localNewsLabel||'LOCAL';
     for(const link of localArticleLinks){const article=link.closest('article');article.classList.add('news-card','news-local');let badge=article.querySelector('.source-label');if(!badge){badge=document.createElement('span');badge.className='source-label';article.prepend(badge)}badge.textContent=label}
     for(const article of document.querySelectorAll('#external-news .news-card')){const source=article.querySelector('.pill')?.textContent.trim(),sourceConfig=config.externalNewsLabels?.[source];if(!sourceConfig)continue;article.classList.remove('news-rss');article.classList.add(`news-${sourceConfig.style}`);article.querySelector('.source-label').textContent=sourceConfig.label}
+    localNewsPromise.then(items=>{const bySlug=new Map(items.filter(item=>item.image).map(item=>[item.slug,item]));for(const link of localArticleLinks){const slug=new URL(link.href).pathname.split('/').filter(Boolean).at(-1),item=bySlug.get(slug),article=link.closest('article');if(!item||article.querySelector('.article-image'))continue;const content=document.createElement('div');for(const child of [...article.children])if(!child.classList.contains('source-label'))content.append(child);const imageLink=document.createElement('a');imageLink.className='article-image';imageLink.href=link.href;imageLink.tabIndex=-1;imageLink.innerHTML=`<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt)}" loading="lazy" decoding="async">`;article.classList.add('external-card');article.append(imageLink,content)}}).catch(()=>{});
   }).catch(()=>{});
 }
 
