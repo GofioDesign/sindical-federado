@@ -1,0 +1,27 @@
+{
+  "title": "Explicación en lenguaje claro",
+  "status": "Borrador sin validación de lectura fácil",
+  "intro": "Esta ayuda explica qué temas aparecen en cada parte del convenio. No resume todos los derechos ni sustituye el texto publicado.",
+  "chapters": {
+    "capitulo-1": "Explica a quién se aplica el convenio, desde cuándo está vigente, cómo se revisa y quién resuelve las dudas sobre su interpretación.",
+    "capitulo-2": "Reúne las reglas sobre contratación: personas fijas discontinuas, contratos temporales y formativos, período de prueba, preavisos y subcontratación.",
+    "capitulo-3": "Ordena los puestos y grupos profesionales. También trata los cambios de funciones y los ascensos.",
+    "capitulo-4": "Trata la jornada, los horarios, el trabajo nocturno, las horas extra, los descansos, las vacaciones, los festivos y los permisos.",
+    "capitulo-5": "Explica situaciones en las que el contrato continúa, pero el trabajo se suspende durante un tiempo, como excedencias o incapacidad temporal.",
+    "capitulo-6": "Reúne los conceptos económicos: salario, anticipos, pagas extraordinarias, complementos, antigüedad y determinados servicios en fechas especiales.",
+    "capitulo-7": "Trata la prevención de riesgos, la salud laboral, el acoso, la igualdad de oportunidades y la no discriminación.",
+    "capitulo-8": "Regula la formación profesional y los órganos que estudian el empleo, la calidad y la competitividad del sector.",
+    "capitulo-9": "Explica los derechos de los sindicatos, comités de empresa y delegados de personal, así como sus garantías.",
+    "capitulo-10": "Incluye medidas sociales relacionadas con seguros, incapacidad, manutención, alojamiento y la aplicación conjunta del convenio."
+  },
+  "glossary": [
+    {"term":"Ámbito","meaning":"Personas, empresas, actividades y territorio a los que se aplica una norma."},
+    {"term":"Vigencia","meaning":"Período durante el que el convenio produce efectos."},
+    {"term":"Comisión Paritaria","meaning":"Grupo formado por representantes de las partes firmantes que interpreta y sigue el convenio."},
+    {"term":"Compensación y absorción","meaning":"Reglas para saber si una mejora salarial puede quedar incluida dentro de otra cantidad que ya se paga."},
+    {"term":"Fijo discontinuo","meaning":"Contrato indefinido para trabajos que se repiten en determinadas épocas o períodos."},
+    {"term":"Preaviso","meaning":"Aviso que debe darse con una antelación determinada antes de una decisión laboral."},
+    {"term":"Incapacidad temporal","meaning":"Situación en la que una persona no puede trabajar temporalmente por enfermedad o accidente."},
+    {"term":"Inaplicación","meaning":"Procedimiento excepcional para dejar de aplicar temporalmente determinadas condiciones del convenio cuando se cumplen requisitos legales."}
+  ]
+}

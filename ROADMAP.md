@@ -13,6 +13,8 @@ Documento vivo con la evolución prevista del sistema. Las prioridades pueden ca
 - Acceso al publicador desde el pie de página, fuera del menú principal.
 - Flujo editorial mediante Google Drive y sincronización periódica.
 - RSS, JSON Feed, sitemap, comprobaciones y despliegue con GitHub Pages.
+- Consulta del convenio vigente 2025-2028 con índice, buscador, modificaciones y acceso a fuentes.
+- Primera capa en lenguaje claro y glosario, identificada como borrador pendiente de validación.
 
 ## Próxima versión
 

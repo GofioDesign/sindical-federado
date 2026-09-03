@@ -1,7 +1,7 @@
 import { access, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 const root = new URL('../', import.meta.url).pathname.replace(/^\/(.:)/, '$1');
-const required=['dist/index.html','dist/feed.xml','dist/feed.json','dist/sitemap.xml','dist/robots.txt','dist/admin.html','dist/search-index.json','dist/local-news.json','dist/buscar/index.html','dist/ahora/index.html','dist/publicar/index.html','dist/assets/news.css','dist/assets/publisher.js','dist/noticias/como-publicamos/index.html','dist/images/cabecera-como-publicamos.png'];
+const required=['dist/index.html','dist/feed.xml','dist/feed.json','dist/sitemap.xml','dist/robots.txt','dist/admin.html','dist/search-index.json','dist/local-news.json','dist/agreement-guide.json','dist/buscar/index.html','dist/ahora/index.html','dist/publicar/index.html','dist/assets/news.css','dist/assets/publisher.js','dist/assets/agreement.js','dist/assets/agreement.css','dist/noticias/como-publicamos/index.html','dist/images/cabecera-como-publicamos.png'];
 for (const f of required) await access(join(root,f));
 const config=JSON.parse(await readFile(join(root,'config/site.json'),'utf8'));
 const urgent=JSON.parse(await readFile(join(root,'content/urgent.json'),'utf8'));
@@ -13,6 +13,9 @@ if (/undefined|null/.test(html)) throw new Error('Rendered home contains missing
 const index=JSON.parse(await readFile(join(root,'dist/search-index.json'),'utf8'));
 if (!index.some(item=>item.type==='Convenio') || !index.some(item=>item.type==='Seguridad')) throw new Error('Search index is incomplete');
 const newsHtml=await readFile(join(root,'dist/noticias/index.html'),'utf8');
+const agreementHtml=await readFile(join(root,'dist/convenio/index.html'),'utf8');
+if(!agreementHtml.includes('Hostelería 2025-2028')&&!agreementHtml.includes('2025-2028'))throw new Error('Current agreement is missing');
+if(!agreementHtml.includes('data-agreement-item')||!agreementHtml.includes('agreement-search'))throw new Error('Agreement consultation is incomplete');
 if (!newsHtml.includes('data-stream-item') || !newsHtml.includes('loading="lazy"')) throw new Error('News stream is incomplete');
 if (newsHtml.includes('<p>Actualidad publicada por Sindicalistas de Base.</p>')) throw new Error('SDB excerpts were not enriched');
 if (!newsHtml.includes('news-local') || !newsHtml.includes('news-rss') || !newsHtml.includes('source-label')) throw new Error('News source labels are missing');

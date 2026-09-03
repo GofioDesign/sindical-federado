@@ -17,4 +17,4 @@ No hay dependencias de producción ni base de datos. Consulta [SETUP.md](SETUP.m
 
 ## Estado
 
-Versión 0.4.0, con imágenes destacadas en tarjetas y cabeceras, validación de imágenes antes de descargar y acceso editorial desde el pie de página. La autenticación y cualquier tratamiento de afiliación sindical quedan fuera de esta fase.
+Versión 0.5.0, con consulta del convenio vigente 2025-2028, buscador por artículos, modificaciones posteriores, históricos secundarios y una explicación en lenguaje claro pendiente de validación. La autenticación y cualquier tratamiento de afiliación sindical quedan fuera de esta fase.

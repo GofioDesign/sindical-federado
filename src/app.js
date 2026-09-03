@@ -52,3 +52,7 @@ if(localArticleLinks.length||stream){
 if(document.querySelector('#publisher')){
   const appScript=document.currentScript||document.querySelector('script[src$="/app.js"]'); const publisher=document.createElement('script'); publisher.src=new URL('publisher.js',appScript?.src||location.href).href; document.body.append(publisher);
 }
+
+if(document.querySelector('#agreement-search')){
+  const appScript=document.currentScript||document.querySelector('script[src$="/app.js"]');const styles=document.createElement('link');styles.rel='stylesheet';styles.href=new URL('agreement.css',appScript?.src||location.href).href;document.head.append(styles);const agreementScript=document.createElement('script');agreementScript.src=new URL('agreement.js',appScript?.src||location.href).href;document.body.append(agreementScript);
+}
