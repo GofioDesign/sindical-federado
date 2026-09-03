@@ -50,13 +50,44 @@ if(agreementSearch){
     return [];
   };
 
+  const legalSources={
+    estatuto:{name:'Estatuto de los Trabajadores',base:'https://www.boe.es/buscar/act.php?id=BOE-A-2015-11430'},
+    lols:{name:'Ley Orgánica de Libertad Sindical',base:'https://www.boe.es/buscar/act.php?id=BOE-A-1985-16660'},
+    lprl:{name:'Ley de Prevención de Riesgos Laborales',base:'https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292'}
+  };
+
+  const inferRelations=(text,currentArticleId)=>{
+    const relations=[];
+    const seen=new Set();
+    const add=relation=>{const key=relation.id||relation.href||relation.label;if(!key||seen.has(key))return;seen.add(key);relations.push(relation)};
+    const currentNumber=Number(currentArticleId.replace('articulo-',''));
+    for(const match of String(text||'').matchAll(/(?:art(?:í|i)culo|art\.)\s*(\d+(?:\.\d+)?)/gi)){
+      const number=Number(match[1].split('.')[0]);
+      if(Number.isInteger(number)&&number>=1&&number<=49&&number!==currentNumber)add({id:`articulo-${number}`});
+    }
+    const addExternal=(kind,pattern)=>{
+      const source=legalSources[kind];
+      for(const match of String(text||'').matchAll(pattern)){
+        const number=match[1];
+        add({label:`${source.name} · artículo ${number}`,href:`${source.base}#a${number.replace('.','_')}`});
+      }
+    };
+    addExternal('estatuto',/(?:art(?:í|i)culo|art\.)\s*(\d+(?:\.\d+)?)\s+(?:del|de la)\s+(?:Ley\s+del\s+)?Estatuto\s+de\s+los\s+Trabajadores/gi);
+    addExternal('lols',/(?:art(?:í|i)culo|art\.)\s*(\d+(?:\.\d+)?)\s+(?:de\s+la\s+)?Ley\s+Org[aá]nica\s+de\s+Libertad\s+Sindical/gi);
+    addExternal('lprl',/(?:art(?:í|i)culo|art\.)\s*(\d+(?:\.\d+)?)\s+(?:de\s+la\s+)?Ley(?:\s+\d+\/\d+[^,]*)?\s+de\s+Prevenci[oó]n\s+de\s+Riesgos\s+Laborales/gi);
+    if(/Ley\s+Org[aá]nica\s+de\s+Libertad\s+Sindical/i.test(text)&&!relations.some(r=>r.href?.includes('BOE-A-1985-16660')))add({label:legalSources.lols.name,href:legalSources.lols.base});
+    if(/Ley(?:\s+\d+\/\d+[^,]*)?\s+de\s+Prevenci[oó]n\s+de\s+Riesgos\s+Laborales/i.test(text)&&!relations.some(r=>r.href?.includes('BOE-A-1995-24292')))add({label:legalSources.lprl.name,href:legalSources.lprl.base});
+    if(/Estatuto\s+de\s+los\s+Trabajadores/i.test(text)&&!relations.some(r=>r.href?.includes('BOE-A-2015-11430')))add({label:legalSources.estatuto.name,href:legalSources.estatuto.base});
+    return relations;
+  };
+
   const renderRelation=(relation)=>{
     if(typeof relation==='string')relation={id:relation};
     if(relation.id&&articleIndex.has(relation.id)){
       const target=articleIndex.get(relation.id);
       return `<button type="button" class="agreement-related-link" data-related-article="${escapeHtml(relation.id)}">${escapeHtml(relation.label||target.title)}</button>`;
     }
-    if(relation.href)return `<a class="agreement-related-link" href="${escapeHtml(relation.href)}"${/^https?:\/\//.test(relation.href)?' rel="external noopener"':''}>${escapeHtml(relation.label||relation.title||'Consultar relación')}</a>`;
+    if(relation.href)return `<a class="agreement-related-link" href="${escapeHtml(relation.href)}"${/^https?:\/\//.test(relation.href)?' target="_blank" rel="external noopener"':''}>${escapeHtml(relation.label||relation.title||'Consultar relación')}</a>`;
     return '';
   };
 
@@ -65,8 +96,10 @@ if(agreementSearch){
     if(!paragraphs.length)return '<p class="agreement-modal__pending">El texto literal de este artículo todavía no está incorporado a la web. Usa el documento o la fuente enlazada para consultar su redacción completa.</p>';
     return paragraphs.map((paragraph,index)=>{
       const paragraphId=`${article.id}-${paragraph.id||`p${index+1}`}`;
-      const relations=[...(paragraph.related||[])];
-      return `<article class="agreement-paragraph" id="${escapeHtml(paragraphId)}" data-legal-paragraph><div class="agreement-paragraph__legal"><p>${escapeHtml(paragraph.text)}</p></div>${paragraph.plain?`<aside class="agreement-paragraph__plain"><span class="agreement-paragraph__label">En palabras sencillas</span><p>${escapeHtml(paragraph.plain)}</p></aside>`:''}${relations.length?`<nav class="agreement-paragraph__relations" aria-label="Contenido relacionado con este párrafo">${relations.map(renderRelation).join('')}</nav>`:''}</article>`;
+      const explicit=paragraph.related||[];
+      const inferred=inferRelations(paragraph.text,article.id);
+      const relations=[...explicit,...inferred].filter((relation,index,array)=>{const key=typeof relation==='string'?relation:(relation.id||relation.href||relation.label);return array.findIndex(item=>{const itemKey=typeof item==='string'?item:(item.id||item.href||item.label);return itemKey===key})===index});
+      return `<article class="agreement-paragraph" id="${escapeHtml(paragraphId)}" data-legal-paragraph><div class="agreement-paragraph__legal"><p>${escapeHtml(paragraph.text)}</p></div>${paragraph.plain?`<aside class="agreement-paragraph__plain"><span class="agreement-paragraph__label">En palabras sencillas</span><p>${escapeHtml(paragraph.plain)}</p></aside>`:''}${paragraph.editorialNote?`<aside class="agreement-paragraph__editorial"><span class="agreement-paragraph__label">Nota de edición</span><p>${escapeHtml(paragraph.editorialNote)}</p></aside>`:''}${relations.length?`<nav class="agreement-paragraph__relations" aria-label="Contenido relacionado con este párrafo">${relations.map(renderRelation).join('')}</nav>`:''}</article>`;
     }).join('');
   };
 
