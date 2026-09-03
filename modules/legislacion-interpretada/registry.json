@@ -9,8 +9,9 @@
       "type": "convenio-colectivo",
       "title": "Convenio Colectivo del Sector de Hostelería de Santa Cruz de Tenerife 2025-2028",
       "territory": "Santa Cruz de Tenerife",
-      "status": "verified",
-      "path": "corpora/laboral/convenio-hosteleria-santa-cruz-tenerife-2025-2028"
+      "status": "draft",
+      "path": "corpora/laboral/convenio-hosteleria-santa-cruz-tenerife-2025-2028",
+      "note": "Corpus iniciado. Articulado completo pendiente de segmentación y contraste final."
     },
     {
       "id": "estatuto-trabajadores",
