@@ -1,0 +1,24 @@
+{
+  "module": "legislacion-interpretada",
+  "version": 1,
+  "updated": "2026-09-03",
+  "corpora": [
+    {
+      "id": "convenio-hosteleria-santa-cruz-tenerife-2025-2028",
+      "domain": "laboral",
+      "type": "convenio-colectivo",
+      "title": "Convenio Colectivo del Sector de Hostelería de Santa Cruz de Tenerife 2025-2028",
+      "territory": "Santa Cruz de Tenerife",
+      "status": "verified",
+      "path": "corpora/laboral/convenio-hosteleria-santa-cruz-tenerife-2025-2028"
+    },
+    {
+      "id": "estatuto-trabajadores",
+      "domain": "laboral",
+      "type": "legislacion-estatal",
+      "title": "Estatuto de los Trabajadores",
+      "status": "planned",
+      "source": "https://www.boe.es/buscar/act.php?id=BOE-A-2015-11430&tn=1&p=20251204"
+    }
+  ]
+}
