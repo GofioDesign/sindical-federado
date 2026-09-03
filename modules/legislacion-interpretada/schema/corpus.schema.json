@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gofiodesign.github.io/legislacion-interpretada/schema/corpus.schema.json",
+  "title": "Legislación Interpretada Corpus",
+  "type": "object",
+  "required": ["id", "title", "domain", "type", "source", "structure"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+    "title": {"type": "string", "minLength": 1},
+    "domain": {"type": "string", "minLength": 1},
+    "type": {"type": "string", "minLength": 1},
+    "territory": {"type": "string"},
+    "validFrom": {"type": ["string", "null"], "format": "date"},
+    "validTo": {"type": ["string", "null"], "format": "date"},
+    "reviewStatus": {"enum": ["draft", "verified", "reviewed", "interpreted"]},
+    "source": {
+      "type": "object",
+      "required": ["publisher", "url"],
+      "properties": {
+        "publisher": {"type": "string"},
+        "publication": {"type": "string"},
+        "date": {"type": ["string", "null"], "format": "date"},
+        "url": {"type": "string", "format": "uri"},
+        "versionDate": {"type": ["string", "null"], "format": "date"}
+      },
+      "additionalProperties": true
+    },
+    "structure": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/node"}
+    }
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {"type": "string"},
+        "title": {"type": "string"},
+        "legal": {"type": "string"},
+        "plain": {"type": "string"},
+        "editorialNote": {"type": ["string", "null"]},
+        "topics": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "related": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {"type": "string"},
+              {
+                "type": "object",
+                "properties": {
+                  "id": {"type": "string"},
+                  "label": {"type": "string"},
+                  "href": {"type": "string"}
+                },
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "children": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/node"}
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
