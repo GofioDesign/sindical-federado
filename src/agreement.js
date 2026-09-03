@@ -13,7 +13,7 @@ if(agreementSearch){
   const agreementDataPromise=fetch(new URL('../agreement-data.json',appScript?.src||location.href)).then(response=>response.json());
   const guidePromise=fetch(new URL('../agreement-guide.json',appScript?.src||location.href)).then(response=>response.json()).catch(()=>null);
 
-  agreementDataPromise.then(data=>{if(!data.registryUrl)return;const link=document.createElement('a');link.className='button secondary';link.href=data.registryUrl;link.textContent='Consultar registro del Ministerio';document.querySelector('.agreement-hero .actions')?.append(link)}).catch(()=>{});
+  agreementDataPromise.then(data=>{if(!data.registryUrl)return;const link=document.createElement('a');link.className='button secondary';link.href=data.registryUrl;link.target='_blank';link.rel='external noopener';link.textContent='Consultar registro del Ministerio ↗';document.querySelector('.agreement-hero .actions')?.append(link)}).catch(()=>{});
 
   guidePromise.then(guide=>{
     if(!guide)return;
@@ -25,7 +25,7 @@ if(agreementSearch){
   const modal=document.createElement('div');
   modal.className='agreement-modal';
   modal.hidden=true;
-  modal.innerHTML=`<div class="agreement-modal__backdrop" data-modal-close></div><section class="agreement-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="agreement-modal-title" tabindex="-1"><header class="agreement-modal__header"><div><p class="eyebrow agreement-modal__chapter"></p><h2 id="agreement-modal-title"></h2></div><button class="agreement-modal__close" type="button" aria-label="Cerrar artículo" data-modal-close>×</button></header><div class="agreement-modal__body"><section class="agreement-modal__legal"><h3>Texto del convenio</h3><div class="agreement-modal__text"></div></section><section class="agreement-modal__related" hidden><h3>Relacionado con</h3><div class="agreement-modal__related-links"></div></section><footer class="agreement-modal__source"><p><strong>Fuente:</strong> <span class="agreement-modal__source-label"></span></p><div class="actions"><a class="button agreement-modal__pdf" rel="external noopener">Abrir documento</a><a class="button secondary agreement-modal__source-link" rel="external noopener">Ver fuente</a></div></footer></div></section>`;
+  modal.innerHTML=`<div class="agreement-modal__backdrop" data-modal-close></div><section class="agreement-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="agreement-modal-title" tabindex="-1"><header class="agreement-modal__header"><div><p class="eyebrow agreement-modal__chapter"></p><h2 id="agreement-modal-title"></h2></div><button class="agreement-modal__close" type="button" aria-label="Cerrar artículo" data-modal-close>×</button></header><div class="agreement-modal__body"><section class="agreement-modal__legal"><h3>Texto del convenio</h3><div class="agreement-modal__text"></div></section><section class="agreement-modal__related" hidden><h3>Relacionado con</h3><div class="agreement-modal__related-links"></div></section><footer class="agreement-modal__source"><p><strong>Fuente:</strong> <span class="agreement-modal__source-label"></span></p><div class="actions"><a class="button agreement-modal__pdf" target="_blank" rel="external noopener">Abrir documento ↗</a><a class="button secondary agreement-modal__source-link" target="_blank" rel="external noopener">Ver fuente oficial ↗</a></div></footer></div></section>`;
   document.body.append(modal);
 
   const dialog=modal.querySelector('.agreement-modal__dialog');
