@@ -1,61 +1,71 @@
 {
-  "title": "Convenio colectivo provincial de Hostelería de Santa Cruz de Tenerife",
+  "title": "Convenio Colectivo del Sector de Hostelería de Santa Cruz de Tenerife 2025-2028",
   "shortTitle": "Hostelería 2025-2028",
   "code": "38000905011981",
   "status": "Vigente",
   "validFrom": "2025-07-01",
   "validTo": "2028-06-30",
   "published": "2025-12-22",
-  "bulletin": "BOP de Santa Cruz de Tenerife n.º 154",
-  "sourceLabel": "Iberley - ficha consolidada del convenio",
-  "sourceUrl": "https://www.iberley.es/convenios/sector/revision-salarial-convenio-colectivo-provincial-hosteleria-santacruz-tenerife-ano-2003-2600230",
+  "bulletin": "Boletín Oficial de la Provincia de Santa Cruz de Tenerife n.º 154, 22 de diciembre de 2025",
+  "sourceLabel": "Boletín Oficial de la Provincia de Santa Cruz de Tenerife n.º 154",
+  "sourceUrl": "https://www.bopsantacruzdetenerife.es/",
   "registryLabel": "Registro de convenios del Ministerio de Trabajo",
   "registryUrl": "https://expinterweb.mites.gob.es/regcon/pub/consultaCodigoMapas?convenioMapa=38000905011981",
   "registryChecked": "2026-09-03",
   "officialPdf": "https://djrw2cmq7svtp.cloudfront.net/convenios/11083359.pdf",
   "updated": "2026-09-03",
+  "sourcePages": {"start":30037,"end":30080},
   "chapters": [
-    {"id":"capitulo-1","title":"Capítulo I. Disposiciones generales","articles":[
-      {"id":"articulo-1","title":"Artículo 1. Partes firmantes"},{"id":"articulo-2","title":"Artículo 2. Ámbito territorial"},{"id":"articulo-3","title":"Artículo 3. Ámbito funcional y personal"},{"id":"articulo-4","title":"Artículo 4. Ámbito temporal"},{"id":"articulo-5","title":"Artículo 5. Solución de discrepancias"},{"id":"articulo-6","title":"Artículo 6. Denuncia, vigencia y prórroga"},{"id":"articulo-7","title":"Artículo 7. Revisión salarial"},{"id":"articulo-8","title":"Artículo 8. Garantías personales"},{"id":"articulo-9","title":"Artículo 9. Compensación y absorción"},{"id":"articulo-10","title":"Artículo 10. No concurrencia y remisión al VI ALEH"},{"id":"articulo-11","title":"Artículo 11. Comisión Paritaria"}
+    {"id":"capitulo-1","title":"Capítulo I. Disposiciones Generales","articles":[
+      {"id":"articulo-1","title":"Artículo 1. Partes firmantes"},{"id":"articulo-2","title":"Artículo 2. Ámbito territorial"},{"id":"articulo-3","title":"Artículo 3. Ámbito funcional y personal"},{"id":"articulo-4","title":"Artículo 4. Ámbito temporal"},{"id":"articulo-5","title":"Artículo 5. Solución de discrepancias"},{"id":"articulo-6","title":"Artículo 6. Denuncia, vigencia y prórroga"},{"id":"articulo-7","title":"Artículo 7. Revisión salarial"},{"id":"articulo-8","title":"Artículo 8. Garantías personales"},{"id":"articulo-9","title":"Artículo 9. Compensación y absorción"},{"id":"articulo-10","title":"Artículo 10. No concurrencia. Remisión al Artículo 10.7 del V Acuerdo de Ámbito Estatal para el Sector de Hostelería (ALEH)"},{"id":"articulo-11","title":"Artículo 11. Comisión Paritaria: composición y funciones"}
     ]},
-    {"id":"capitulo-2","title":"Capítulo II. Empleo y contratación","articles":[
-      {"id":"articulo-12","title":"Artículo 12. Contratación"},{"id":"articulo-13","title":"Artículo 13. Fijos discontinuos"},{"id":"articulo-14","title":"Artículo 14. Contratos eventuales"},{"id":"articulo-15","title":"Artículo 15. Contratos formativos"},{"id":"articulo-16","title":"Artículo 16. Período de prueba"},{"id":"articulo-17","title":"Artículo 17. Preaviso de denuncia y dimisión"},{"id":"articulo-18","title":"Artículo 18. Contratación y subcontratación"}
+    {"id":"capitulo-2","title":"Capítulo II. Empleo y Contratación","articles":[
+      {"id":"articulo-12","title":"Artículo 12. Contratación"},{"id":"articulo-13","title":"Artículo 13. Fijos discontinuos"},{"id":"articulo-14","title":"Artículo 14. Contratos de duración determinada"},{"id":"articulo-15","title":"Artículo 15. Contratos formativos"},{"id":"articulo-16","title":"Artículo 16. Período de prueba"},{"id":"articulo-17","title":"Artículo 17. Preaviso para denuncia y dimisión"},{"id":"articulo-18","title":"Artículo 18. Contratación y subcontratación"}
     ]},
-    {"id":"capitulo-3","title":"Capítulo III. Clasificación profesional","articles":[
-      {"id":"articulo-19","title":"Artículo 19. Clasificación de empresas y grupos retributivos"},{"id":"articulo-20","title":"Artículo 20. Movilidad funcional y polivalencia"},{"id":"articulo-21","title":"Artículo 21. Normas de ascensos"}
+    {"id":"capitulo-3","title":"Capítulo III. Clasificación Profesional","articles":[
+      {"id":"articulo-19","title":"Artículo 19. Clasificación de Empresas y Grupos Salariales a efectos retributivos. Elecciones Sindicales-Colegios Electorales"},{"id":"articulo-20","title":"Artículo 20. Movilidad Funcional y Polivalencia Funcional"},{"id":"articulo-21","title":"Artículo 21. Normas de Ascensos"}
     ]},
-    {"id":"capitulo-4","title":"Capítulo IV. Tiempo de trabajo, vacaciones y permisos","articles":[
-      {"id":"articulo-22","title":"Artículo 22. Jornada, calendario y horario"},{"id":"articulo-23","title":"Artículo 23. Jornada nocturna"},{"id":"articulo-24","title":"Artículo 24. Horas extraordinarias"},{"id":"articulo-25","title":"Artículo 25. Horas complementarias"},{"id":"articulo-26","title":"Artículo 26. Descanso diario y semanal"},{"id":"articulo-27","title":"Artículo 27. Vacaciones y festivos"},{"id":"articulo-28","title":"Artículo 28. Permisos"}
+    {"id":"capitulo-4","title":"Capítulo IV. Tiempo de trabajo. Vacaciones. Permisos","articles":[
+      {"id":"articulo-22","title":"Artículo 22. Jornada de Trabajo. Calendario Laboral y Horario de Trabajo"},{"id":"articulo-23","title":"Artículo 23. Jornada Nocturna"},{"id":"articulo-24","title":"Artículo 24. Horas Extraordinarias"},{"id":"articulo-25","title":"Artículo 25. Horas Complementarias"},{"id":"articulo-26","title":"Artículo 26. Descanso diario y semanal"},{"id":"articulo-27","title":"Artículo 27. Vacaciones y Festivos"},{"id":"articulo-28","title":"Artículo 28. Permisos"}
     ]},
-    {"id":"capitulo-5","title":"Capítulo V. Suspensión del contrato","articles":[
-      {"id":"articulo-29","title":"Artículo 29. Excedencias"},{"id":"articulo-30","title":"Artículo 30. Incapacidad temporal"},{"id":"articulo-31","title":"Artículo 31. Licencias por maternidad"}
+    {"id":"capitulo-5","title":"Capítulo V. Suspensión del Contrato de Trabajo","articles":[
+      {"id":"articulo-29","title":"Artículo 29. Excedencias"},{"id":"articulo-30","title":"Artículo 30. Incapacidad Temporal"},{"id":"articulo-31","title":"Artículo 31. Licencias por Nacimiento"}
     ]},
-    {"id":"capitulo-6","title":"Capítulo VI. Estructura salarial","articles":[
-      {"id":"articulo-32","title":"Artículo 32. Salario bruto garantizado"},{"id":"articulo-33","title":"Artículo 33. Período retributivo y anticipos"},{"id":"articulo-34","title":"Artículo 34. Pagas extraordinarias"},{"id":"articulo-35","title":"Artículo 35. Complementos extrasalariales"},{"id":"articulo-36","title":"Artículo 36. Antigüedad y premio de vinculación"},{"id":"articulo-37","title":"Artículo 37. Galas de Navidad, Fin de Año y Reyes"}
+    {"id":"capitulo-6","title":"Capítulo VI. Estructura Salarial","articles":[
+      {"id":"articulo-32","title":"Artículo 32. Salario Bruto Garantizado"},{"id":"articulo-33","title":"Artículo 33. Período Retributivo. Anticipos"},{"id":"articulo-34","title":"Artículo 34. Pagas Extraordinarias"},{"id":"articulo-35","title":"Artículo 35. Complementos Extrasalariales"},{"id":"articulo-36","title":"Artículo 36. Complemento Personal y Premio de Vinculación"},{"id":"articulo-37","title":"Artículo 37. Galas de Navidad, Fin de Año y Reyes"}
     ]},
-    {"id":"capitulo-7","title":"Capítulo VII. Seguridad, salud e igualdad","articles":[
-      {"id":"articulo-38","title":"Artículo 38. Seguridad, higiene y salud laboral"},{"id":"articulo-39","title":"Artículo 39. Prevención del acoso, igualdad y no discriminación"}
+    {"id":"capitulo-7","title":"Capítulo VII. Seguridad y Salud Laboral. Planificación Familiar. Acoso Moral y Sexual","articles":[
+      {"id":"articulo-38","title":"Artículo 38. Seguridad e Higiene en el Trabajo y Salud Laboral"},{"id":"articulo-39","title":"Artículo 39. Comisión Paritaria sobre Prevención del Acoso y para la Igualdad de Oportunidades y no discriminación entre hombres y mujeres y personas LGTBI"}
     ]},
-    {"id":"capitulo-8","title":"Capítulo VIII. Formación profesional y empleo","articles":[
-      {"id":"articulo-40","title":"Artículo 40. Formación profesional"},{"id":"articulo-41","title":"Artículo 41. Observatorio por el empleo, la calidad y la competitividad"}
+    {"id":"capitulo-8","title":"Capítulo VIII. Formación Profesional y Empleo","articles":[
+      {"id":"articulo-40","title":"Artículo 40. Formación Profesional"},{"id":"articulo-41","title":"Artículo 41. Observatorio por el Empleo, la Calidad y la Competitividad. Prejubilación del Colectivo de Camareras/os de Pisos"}
     ]},
-    {"id":"capitulo-9","title":"Capítulo IX. Derechos sindicales","articles":[
-      {"id":"articulo-42","title":"Artículo 42. De los sindicatos"},{"id":"articulo-43","title":"Artículo 43. Comités de empresa y delegados de personal"},{"id":"articulo-44","title":"Artículo 44. Garantías y prácticas antisindicales"},{"id":"articulo-45","title":"Artículo 45. Fondo de atenciones sociales y del comité"},{"id":"articulo-46","title":"Artículo 46. Cotización"}
+    {"id":"capitulo-9","title":"Capítulo IX. Derechos Sindicales","articles":[
+      {"id":"articulo-42","title":"Artículo 42. De los Sindicatos"},{"id":"articulo-43","title":"Artículo 43. De los Comités de Empresa y delegados/as de Personal"},{"id":"articulo-44","title":"Artículo 44. Garantías. Prácticas Antisindicales. Disposición General"},{"id":"articulo-45","title":"Artículo 45. Fondo de Atenciones Sociales y del Comité de Empresa"},{"id":"articulo-46","title":"Artículo 46. Cotización"}
     ]},
-    {"id":"capitulo-10","title":"Capítulo X. Acción social y jubilación","articles":[
-      {"id":"articulo-47","title":"Artículo 47. Seguro de vida e incapacidad permanente"},{"id":"articulo-48","title":"Artículo 48. Manutención y alojamiento"},{"id":"articulo-49","title":"Artículo 49. Vinculación a la totalidad"}
+    {"id":"capitulo-10","title":"Capítulo X. Acción Social y Jubilación","articles":[
+      {"id":"articulo-47","title":"Artículo 47. Seguro de Vida e Incapacidad Permanente"},{"id":"articulo-48","title":"Artículo 48. Manutención y Alojamiento"},{"id":"articulo-49","title":"Artículo 49. Vinculación a la Totalidad"}
     ]}
+  ],
+  "finalProvisions": [
+    {"id":"disposicion-final-1","title":"Disposición Final Primera. Cláusula de Paz Laboral"},
+    {"id":"disposicion-final-2","title":"Disposición Final Segunda. Régimen Especial Colectividades"},
+    {"id":"disposicion-final-3","title":"Disposición Final Tercera. Procedimiento de Inaplicación del Convenio"},
+    {"id":"disposicion-final-4","title":"Disposición Final Cuarta. Observatorio sobre el Absentismo Laboral"},
+    {"id":"disposicion-final-5","title":"Disposición Final Quinta. Régimen Especial para Empresas de Restauración y Ocio"}
+  ],
+  "annexes": [
+    {"id":"anexo-1","title":"Anexo I. Tablas Salariales"},
+    {"id":"anexo-2","title":"Anexo II. Clasificación de las Empresas"}
   ],
   "amendments": [
     {"date":"2026-07-22","type":"Acuerdo de la Comisión Paritaria","title":"Acuerdo posterior relacionado con el convenio vigente"},
     {"date":"2026-04-29","type":"Acuerdo de la Comisión Paritaria","title":"Acuerdo sobre plus de transporte","validFrom":"2026-03-26"},
     {"date":"2026-04-03","type":"Acuerdo de la Comisión Paritaria","title":"Acuerdo posterior relacionado con el convenio vigente","validFrom":"2026-02-12"},
     {"date":"2026-01-09","type":"Corrección de errores","title":"Corrección del convenio publicado en el BOP n.º 154"}
-    ,{"date":"2025-12-15","type":"Revisión salarial automática","title":"Trámite registrado por el Ministerio de Trabajo"}
-    ,{"date":"2025-12-15","type":"Revisión salarial automática","title":"Segundo trámite registrado por el Ministerio de Trabajo"}
   ],
   "history": [
-    {"period":"2025-2028","published":"2025-12-22","status":"Vigente","url":"https://www.iberley.es/convenios/sector/revision-salarial-convenio-colectivo-provincial-hosteleria-santacruz-tenerife-ano-2003-2600230"},
+    {"period":"2025-2028","published":"2025-12-22","status":"Vigente","url":"https://www.bopsantacruzdetenerife.es/"},
     {"period":"2022-2026","published":"2023-02-15","status":"Sustituido","url":"https://www.bopsantacruzdetenerife.es/boletines/2023/15-2-23/15-2-23.pdf","note":"Corrección de tablas salariales publicada el 27-02-2023."},
     {"period":"2018-2022","published":"2019-04-12","status":"Histórico","url":"https://expinterweb.mites.gob.es/regcon/pub/consultaCodigoMapas?convenioMapa=38000905011981"},
     {"period":"2015-2019","published":"2015-10-28","status":"Histórico","url":"https://noticias.juridicas.com/base_datos/Laboral/561284-convenio-colectivo-provincial-de-hosteleria-de-santa-cruz-de-tenerife-2015.html"},
