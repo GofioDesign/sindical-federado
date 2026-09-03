@@ -1,0 +1,71 @@
+{
+  "id": "convenio-hosteleria-santa-cruz-tenerife-2025-2028",
+  "structure": [
+    {
+      "id": "capitulo-1",
+      "title": "Capítulo I. Disposiciones Generales",
+      "children": [
+        {
+          "id": "articulo-1",
+          "title": "Artículo 1. Partes Firmantes",
+          "children": [
+            {
+              "id": "articulo-1-1",
+              "legal": "Son partes firmantes del presente Convenio y han formado la comisión negociadora, por la representación de los empresarios la Asociación Hotelera y Extrahotelera de Tenerife, la Palma, Gomera y El Hierro, Ashotel (11), y la Asociación de Empresarios de Restauración y Ocio (AERO) (4), y por la representación de las personas trabajadoras Sindicalistas de Base, 10 miembros y 2 miembros del sindicato UGT, de los 15 representantes por la parte sindical.",
+              "plain": "Este apartado identifica qué organizaciones empresariales y sindicales negociaron y firmaron el convenio."
+            }
+          ]
+        },
+        {
+          "id": "articulo-2",
+          "title": "Artículo 2. Ámbito Territorial",
+          "children": [
+            {
+              "id": "articulo-2-1",
+              "legal": "El presente Convenio es de aplicación obligatoria en la provincia de Santa Cruz de Tenerife.",
+              "plain": "El convenio se aplica dentro de toda la provincia de Santa Cruz de Tenerife."
+            }
+          ]
+        },
+        {
+          "id": "articulo-3",
+          "title": "Artículo 3. Ámbito Funcional y Personal",
+          "children": [
+            {
+              "id": "articulo-3-1",
+              "legal": "Este Convenio colectivo se aplica a las empresas y personas trabajadoras del sector de la Hostelería. Se incluyen en el sector de la Hostelería todas las empresas que, independientemente de su titularidad y fines perseguidos, realicen en instalaciones fijas o móviles, y tanto de manera permanente como ocasional, actividades de alojamiento en hoteles, hostales, residencias y apartamentos que presten algún servicio hostelero, albergues, pensiones, moteles, alojamientos rurales, campings y todos aquellos establecimientos que presten servicios de hospedaje en general, así como aquellos otros que determine la normativa turística canaria. Asimismo, se incluyen las empresas que presten servicios de productos listos para su consumo, tales como restaurantes, establecimientos de catering, colectividades, de comida rápida, pizzerías, hamburgueserías, creperías, etc., y cafés, bares, cafeterías, cervecerías, heladerías, chocolaterías, degustaciones, salones de té y similares, además de las salas de baile o discotecas y locales de ocio nocturno, cafés-teatro, tablaos y similares, así como los servicios de comidas y/o bebidas en casinos, bingos, billares y salones recreativos, residencias geriátricas, piscinas, campos de golf y clubes privados. Igualmente, las personas trabajadoras de servicios auxiliares se regirán en todas las materias por las normas y tablas de este Convenio, incluidas las retribuciones.",
+              "plain": "Define qué tipos de empresas y actividades están cubiertas. Incluye alojamiento, restauración, ocio y determinados servicios auxiliares, y establece que estas personas trabajadoras también quedan sujetas a las normas y tablas salariales del convenio."
+            },
+            {
+              "id": "articulo-3-2",
+              "legal": "Se regirán por el presente Convenio las personas trabajadoras que presten sus servicios en las empresas y establecimientos determinados en el apartado anterior. Por Personal Laboral se entenderá el no excluido por el Estatuto de los Trabajadores. Se incorpora al ámbito funcional del presente Convenio a la Categoría Profesional de ‘Reparto a Domicilio’ en el ámbito de la ‘Restauración’ y en su Grupo Salarial V, entendiéndose por repartidor la persona trabajadora/a que únicamente se dedica al reparto de comida en transporte ligero, y por ‘Reparto a Domicilio’ ha de entenderse la directa puesta a disposición del consumidor final del producto elaborado por la empresa.",
+              "plain": "Aclara qué personas trabajadoras quedan incluidas y añade expresamente el reparto de comida a domicilio dentro de restauración, en el grupo salarial V.",
+              "related": [
+                {
+                  "label": "Estatuto de los Trabajadores",
+                  "href": "https://www.boe.es/buscar/act.php?id=BOE-A-2015-11430&tn=1&p=20251204"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "articulo-4",
+          "title": "Artículo 4. Ámbito Temporal",
+          "children": [
+            {
+              "id": "articulo-4-1",
+              "legal": "El presente Convenio de Hostelería tendrá una vigencia de tres años, desde el 1 de julio de 2025 hasta el 30 de junio de 2028, con independencia de la fecha de su publicación en el Boletín Oficial de la Provincia y sustituye al anterior convenio colectivo.",
+              "plain": "El convenio comenzó a aplicarse el 1 de julio de 2025 y está pactado hasta el 30 de junio de 2028, aunque se publicara más tarde. Sustituye al convenio anterior."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ingestionStatus": {
+    "completedArticles": [1, 2, 3, 4],
+    "pendingArticles": "5-49",
+    "note": "Semilla inicial. No debe considerarse todavía el articulado completo del convenio."
+  }
+}
