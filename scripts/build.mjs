@@ -50,13 +50,14 @@ await cp(join(root,'src/agreement.js'),join(out,'assets/agreement.js'));
 await cp(join(root,'src/agreement.css'),join(out,'assets/agreement.css'));
 await cp(join(root,'content/agreement-guide.json'),join(out,'agreement-guide.json'));
 await cp(join(root,'content/agreement.json'),join(out,'agreement-data.json'));
+await cp(join(root,'config/taxonomy.json'),join(out,'taxonomy.json'));
 await cp(join(root,'config/site.json'),join(out,'site-config.json'));
 await cp(join(root,'static/images'),join(out,'images'),{recursive:true});
 const base = site.baseUrl.replace(/\/$/,'');
 const routes = ['', 'ahora/', 'buscar/', 'publicar/', 'noticias/', ...news.map(n=>`noticias/${n.slug}/`), 'convenio/', 'seguridad/', ...safety.map(s=>`seguridad/${s.slug}/`), 'encuestas/', 'contacto/'];
 await writeFile(join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map(r=>`<url><loc>${base}/${r}</loc></url>`).join('')}</urlset>`);
-await writeFile(join(out,'feed.xml'),`<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>${esc(site.name)}</title><link>${base}</link><description>${esc(site.description)}</description>${news.map(n=>`<item><title>${esc(n.title)}</title><link>${base}/noticias/${esc(n.slug)}/</link><guid>${base}/noticias/${esc(n.slug)}/</guid><pubDate>${new Date(n.date+'T12:00:00Z').toUTCString()}</pubDate><description>${esc(n.summary)}</description></item>`).join('')}</channel></rss>`);
-await writeFile(join(out,'feed.json'),JSON.stringify({version:'https://jsonfeed.org/version/1.1',title:site.name,home_page_url:base,feed_url:`${base}/feed.json`,items:news.map(n=>({id:`${base}/noticias/${n.slug}/`,url:`${base}/noticias/${n.slug}/`,title:n.title,summary:n.summary,date_published:`${n.date}T12:00:00Z`,tags:n.tags}))},null,2));
+await writeFile(join(out,'feed.xml'),`<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>${esc(site.name)}</title><link>${base}</link><description>${esc(site.description)}</description>${news.map(n=>`<item><title>${esc(n.title)}</title><link>${base}/noticias/${esc(n.slug)}/</link><guid>${base}/noticias/${esc(n.slug)}/</guid><pubDate>${new Date(n.date+'T12:00:00Z').toUTCString()}</pubDate><description>${esc(n.summary)}</description><category domain="${base}/taxonomy.json#category">${esc(n.category)}</category>${(n.tags||[]).map(tag=>`<category domain="${base}/taxonomy.json#tag">${esc(tag)}</category>`).join('')}</item>`).join('')}</channel></rss>`);
+await writeFile(join(out,'feed.json'),JSON.stringify({version:'https://jsonfeed.org/version/1.1',title:site.name,home_page_url:base,feed_url:`${base}/feed.json`,_sindical:{taxonomy:`${base}/taxonomy.json`,taxonomy_version:'1.0'},items:news.map(n=>({id:`${base}/noticias/${n.slug}/`,url:`${base}/noticias/${n.slug}/`,title:n.title,summary:n.summary,date_published:`${n.date}T12:00:00Z`,tags:[n.category,...(n.tags||[])],_sindical:{category:n.category,tags:n.tags||[]}}))},null,2));
 await writeFile(join(out,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${base}/sitemap.xml\n`);
 await writeFile(join(out,'local-news.json'),JSON.stringify(news.map(n=>({slug:n.slug,image:n.image||'',imageAlt:n.imageAlt||''})),null,2));
 const searchItems = [

@@ -13,8 +13,8 @@ Los artículos propios se guardan en `content/articles/*.md`. La página `/publi
 3. Ejecuta `npm run build && npm run check`.
 4. Publica `dist/` o activa GitHub Pages con GitHub Actions.
 
-No hay dependencias de producción ni base de datos. Consulta [SETUP.md](SETUP.md), [ROADMAP.md](ROADMAP.md), [docs/MODELO-DE-DATOS.md](docs/MODELO-DE-DATOS.md) y [SECURITY.md](SECURITY.md).
+No hay dependencias de producción ni base de datos. Consulta [SETUP.md](SETUP.md), [ROADMAP.md](ROADMAP.md), [docs/MODELO-DE-DATOS.md](docs/MODELO-DE-DATOS.md), [docs/RESINDICALIZACION.md](docs/RESINDICALIZACION.md) y [SECURITY.md](SECURITY.md).
 
 ## Estado
 
-Versión 0.5.1, con consulta del convenio vigente 2025-2028 contrastada con el registro del Ministerio, buscador por artículos, actuaciones posteriores y una explicación en lenguaje claro pendiente de validación. La autenticación y cualquier tratamiento de afiliación sindical quedan fuera de esta fase.
+Versión 0.5.2, con categorías base obligatorias, etiquetas libres y un contrato público de taxonomía para RSS y JSON Feed. La autenticación y cualquier tratamiento de afiliación sindical quedan fuera de esta fase.

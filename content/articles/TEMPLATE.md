@@ -6,6 +6,7 @@ summary: Resumen breve que aparecerá en tarjetas, buscador y feeds.
 author: Comité de San Blas
 status: draft
 priority: normal
+category: otros
 tags: [información]
 ---
 

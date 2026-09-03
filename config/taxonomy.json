@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "categoryField": "category",
+  "tagField": "tags",
+  "categories": [
+    {"code":"accion-sindical","label":"Acción sindical"},
+    {"code":"convenio","label":"Convenio colectivo"},
+    {"code":"salarios","label":"Salarios"},
+    {"code":"jornada","label":"Jornada y descansos"},
+    {"code":"permisos","label":"Permisos y conciliación"},
+    {"code":"empleo","label":"Empleo y contratación"},
+    {"code":"prl","label":"Prevención y salud laboral"},
+    {"code":"igualdad","label":"Igualdad y no discriminación"},
+    {"code":"formacion","label":"Formación"},
+    {"code":"otros","label":"Otros"}
+  ],
+  "tagPolicy": "Etiquetas libres en minúsculas, separadas por comas y sin datos personales."
+}

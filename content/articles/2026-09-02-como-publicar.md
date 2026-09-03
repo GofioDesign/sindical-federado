@@ -6,6 +6,7 @@ summary: El contenido propio se escribe en Markdown, se revisa y se publica sin 
 author: Comité de San Blas
 status: published
 priority: normal
+category: accion-sindical
 image: https://gofiodesign.eu/sindical-federado/images/cabecera-como-publicamos.png
 imageAlt: Mesa de trabajo del comité preparando una publicación
 tags: [comité, transparencia]
